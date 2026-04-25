@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DEVONAX-ACCESS LOGIN</title>
+
+    <script>
+// AUTO LOGIN
+if (localStorage.getItem("isLogin") === "true") {
+    window.location.href = "dashboard.html";
+}
+    </script>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: radial-gradient(circle at top, #1a0000, #000);
+    color: white;
+}
+
+/* SPOTLIGHT */
+.top-light {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 60px;
+    background: radial-gradient(circle, rgba(255,0,0,0.6), transparent);
+    filter: blur(20px);
+}
+
+/* CONTAINER */
+.login-box {
+    width: 85%;
+    max-width: 320px;
+    margin: 80px auto;
+    padding: 25px 20px;
+    border-radius: 25px;
+    background: rgba(20,0,0,0.95);
+    box-shadow: 0 0 25px red;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* LOGO */
+.logo svg {
+    width: 140px;
+    display: block;
+    margin: 0 auto 10px auto;
+    filter: drop-shadow(0 0 10px red) drop-shadow(0 0 25px red);
+}
+
+/* TITLE */
+h1 {
+    font-size: 22px;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px red;
+}
+
+p {
+    font-size: 13px;
+    color: #aaa;
+}
+
+/* LABEL */
+.label {
+    text-align: left;
+    margin-top: 18px;
+    font-size: 13px;
+    color: #bbb;
+}
+
+/* INPUT FIX */
+input {
+    width: 100%;
+    box-sizing: border-box; /* ANTI MLENCENG */
+    padding: 14px;
+    margin-top: 6px;
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.05);
+    color: white;
+    outline: none;
+}
+
+/* BUTTON */
+.btn {
+    width: 100%;
+    padding: 14px;
+    margin-top: 15px;
+    border-radius: 18px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.login-btn {
+    background: #e5e5e5;
+    color: black;
+}
+
+.register-btn {
+    background: rgba(255,255,255,0.1);
+    color: #ccc;
+}
+
+/* FOOTER */
+.footer {
+    margin-top: 25px;
+    font-size: 12px;
+    color: #aaa;
+}
+
+/* ===== ANIMASI ===== */
+
+/* MATA */
+.eye-left {
+    animation: blinkLeft 2s infinite;
+    filter: drop-shadow(0 0 6px red);
+}
+.eye-right {
+    animation: blinkRight 2s infinite;
+    filter: drop-shadow(0 0 6px red);
+}
+
+@keyframes blinkLeft {
+    0%,80%,100%{opacity:1;}
+    85%{opacity:0;}
+}
+@keyframes blinkRight {
+    0%,85%,100%{opacity:1;}
+    90%{opacity:0;}
+}
+
+/* MULUT GIGIT */
+.jaw {
+    animation: bite 0.5s infinite;
+}
+@keyframes bite {
+    0%{transform:translateY(0);}
+    50%{transform:translateY(5px);}
+    100%{transform:translateY(0);}
+}
+
+/* CAIRAN */
+.drip {
+    animation: drip 1.2s infinite;
+    stroke: red;
+    filter: drop-shadow(0 0 6px red);
+}
+@keyframes drip {
+    0%{opacity:0; transform:translateY(0);}
+    50%{opacity:1;}
+    100%{opacity:0; transform:translateY(15px);}
+}
+
+/* SHAKE HALUS */
+.logo svg {
+    animation: shake 2s infinite;
+}
+@keyframes shake {
+    0%,100%{transform:translate(0);}
+    25%{transform:translate(-2px,2px);}
+    50%{transform:translate(2px,-2px);}
+    75%{transform:translate(-1px,1px);}
+}
+</style>
+
+</head>
+<body>
+
+<div class="top-light"></div>
+
+<div class="login-box">
+
+    <!-- TENGKORAK SERAM -->
+    <div class="logo">
+        <svg viewBox="0 0 200 200">
+
+            <!-- TANDUK -->
+            <path d="M40 40 Q20 10 60 30" stroke="red" stroke-width="2" fill="none"/>
+            <path d="M160 40 Q180 10 140 30" stroke="red" stroke-width="2" fill="none"/>
+
+            <!-- KEPALA -->
+            <circle cx="100" cy="80" r="50" stroke="red" stroke-width="3" fill="none"/>
+
+            <!-- MATA -->
+            <ellipse class="eye-left" cx="80" cy="75" rx="8" ry="5" fill="red"/>
+            <ellipse class="eye-right" cx="120" cy="75" rx="8" ry="5" fill="red"/>
+
+            <!-- HIDUNG -->
+            <polygon points="100,85 90,100 110,100" fill="red"/>
+
+            <!-- MULUT -->
+            <g class="jaw">
+                <rect x="70" y="105" width="60" height="20" stroke="red" fill="none"/>
+                <line x1="80" y1="105" x2="80" y2="125" stroke="red"/>
+                <line x1="90" y1="105" x2="90" y2="125" stroke="red"/>
+                <line x1="100" y1="105" x2="100" y2="125" stroke="red"/>
+                <line x1="110" y1="105" x2="110" y2="125" stroke="red"/>
+                <line x1="120" y1="105" x2="120" y2="125" stroke="red"/>
+            </g>
+
+            <!-- CAIRAN MERAH -->
+            <line class="drip" x1="90" y1="125" x2="90" y2="145" stroke-width="2"/>
+            <line class="drip" x1="100" y1="125" x2="100" y2="150" stroke-width="2"/>
+            <line class="drip" x1="110" y1="125" x2="110" y2="145" stroke-width="2"/>
+
+        </svg>
+    </div>
+
+    <h1>LOGIN MENU</h1>
+    <p>Please login to access the tool.</p>
+
+    <div class="label">Enter username:</div>
+    <input type="text" id="username" placeholder="Username">
+
+    <div class="label">Enter password:</div>
+  <div style="position:relative;">
+    <input type="password" id="password" placeholder="Password"
+    style="padding-right:40px;">
+
+    <span onclick="togglePassword()" style="
+    position:absolute;
+    right:12px;
+    top:50%;
+    transform:translateY(-50%);
+    cursor:pointer;
+    color:#ccc;
+    font-size:16px;
+    ">👁</span>
+  </div>
+
+    <button class="btn login-btn" onclick="login()">LOGIN</button>
+    <button class="btn register-btn" onclick="register()">REGISTER</button>
+
+    <div class="footer">
+        Belum punya akun? Klik "register"<br>
+        © 2026 WHATSAPP TOOLS | @danzz
+    </div>
+
+</div>
+
+    <script>
+function getUsers() {
+    let localUsers = JSON.parse(localStorage.getItem("users")) || [];
+
+    let defaultUsers = [
+    { username: "Danzz", password: "Dev123", role: "Developer" }, // 🔥 utama
+    { username: "Danzx", password: "Danzz567", role: "Member" },
+    { username: "Aufatzy", password: "Aufacool", role: "Member" }
+];
+
+    return [...defaultUsers, ...localUsers];
+        }
+// UNTUK LIHAT PASSWORD
+        function togglePassword() {
+    let input = document.getElementById("password");
+    input.type = input.type === "password" ? "text" : "password";
+        }
+
+// LOGIN SYSTEM
+function login() {
+    let user = document.getElementById("username").value;
+    let pass = document.getElementById("password").value;
+
+    let users = getUsers();
+    let found = users.find(u => u.username === user && u.password === pass);
+
+    if(found) {
+        localStorage.setItem("isLogin", "true");
+        localStorage.setItem("username", found.username);
+        localStorage.setItem("role", found.role);
+
+        alert("Login berhasil!");
+        window.location.href = "dashboard.html";
+    } else {
+        alert("Username atau password salah!");
+    }
+}
+
+// REGISTER KE WA (BIAR AMAN)
+function register() {
+    let nomor = "6285707277941";
+
+    let user = document.getElementById("username").value || "User baru";
+    let pass = document.getElementById("password").value || "Tidak diisi";
+
+    let pesan = encodeURIComponent(
+        "Halo admin, saya ingin daftar akun\n\nUsername: " + user + "\nPassword: " + pass
+    );
+
+    window.open(`https://wa.me/${nomor}?text=${pesan}`, "_blank");
+}
+    </script>
